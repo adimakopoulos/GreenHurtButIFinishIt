@@ -1,0 +1,9 @@
+.button {
+    width: 100px;
+    height: 50px;
+    -unity-font-style: bold;
+    color: rgba(255, 255, 255, 255);
+    border-left-width: 2px;
+    border-right-width: 0;
+    border-top-width: 2px;
+}
