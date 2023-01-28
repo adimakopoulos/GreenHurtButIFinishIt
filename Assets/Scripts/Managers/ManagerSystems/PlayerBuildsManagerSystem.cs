@@ -17,11 +17,6 @@ public class PlayerBuildsManagerSystem : MonoBehaviour
         foresterPrefab = Resources.Load("Prefabs/ForesterGO") as GameObject;
         farmPrefab = Resources.Load("Prefabs/FarmGO") as GameObject;
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -84,8 +79,15 @@ public class PlayerBuildsManagerSystem : MonoBehaviour
 
         if (playerBuildTypeEnum == PlayerBuildTypeEnum.FARM)
         {
+            if (GridManagerSystem.validateCanBuildOnTile(collisionForFarm(x, y)) && GridManagerSystem.validateIsOnFeritleOrGrassTile(collisionForFarm(x, y)))
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
 
-            return GridManagerSystem.validateCanBuildOnTile(collisionForFarm(x, y));
+                 
 
         }
         else if (playerBuildTypeEnum == PlayerBuildTypeEnum.QUARRY)
@@ -96,7 +98,6 @@ public class PlayerBuildsManagerSystem : MonoBehaviour
         }
         else if (playerBuildTypeEnum == PlayerBuildTypeEnum.FORESTER)
         {
-
             return GridManagerSystem.validateCanBuildOnTile(collisionForForester(x, y));
 
         }
@@ -194,6 +195,9 @@ public class PlayerBuildsManagerSystem : MonoBehaviour
             }
 
             playerBuildTypeEnum = PlayerBuildTypeEnum.NONE;
+            var placedBuiling = Instantiate(GhostInstanciatedPrefab);
+            placedBuiling.transform.position = new Vector3(posX, 0, posY);
+            Destroy(GhostInstanciatedPrefab);
             GhostInstanciatedPrefab = null;
         }
 
