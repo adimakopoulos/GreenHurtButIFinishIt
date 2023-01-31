@@ -14,7 +14,7 @@ public class ZombieManager : MonoBehaviour
     void Start()
     {
         AttackLocation = AttackLocationsManager.getRandomAttackPos();
-
+        gameObject.transform.LookAt(AttackLocation);
     }
 
     // Update is called once per frame

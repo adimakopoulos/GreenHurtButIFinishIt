@@ -25,7 +25,7 @@ public class BallistaArrowManager : MonoBehaviour
         {
             gameObject.transform.position = Vector3.MoveTowards(transform.position, targetToReach, Time.deltaTime * speed);
         }
-        if (gameObject.transform.position.y == 0)
+        if (gameObject.transform.position.y <= 0.1f)
         {
             gameObject.GetComponent<BoxCollider>().enabled = false;
             Invoke("killArrow", 5f);

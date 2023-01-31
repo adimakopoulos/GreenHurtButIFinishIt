@@ -18,5 +18,6 @@ public class SpawnerManager : MonoBehaviour
     private void SpawnPeriodicly() {
         GameObject enemy = Instantiate(EnemyGO);
         enemy.transform.position = gameObject.transform.position;
+        
     }
 }

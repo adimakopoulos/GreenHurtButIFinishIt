@@ -32,7 +32,7 @@ public class UI : MonoBehaviour
 
         Label txtStats = visualElement.Q<Label>("TxtStats");
 
-        txtStats.text = "food " + PlayerStatsManagerSystem.Food + ",wood " + PlayerStatsManagerSystem.Wood + ",stone " + PlayerStatsManagerSystem.Stone;
+        txtStats.text = "food " + PlayerStatsManagerSystem.Food + ",wood " + PlayerStatsManagerSystem.Wood + ",stone " + PlayerStatsManagerSystem.Stone + ",Available " + PlayerStatsManagerSystem.BalistaArrows;
 
     }
 }

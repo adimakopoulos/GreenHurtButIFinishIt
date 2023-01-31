@@ -63,8 +63,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.48420325, y: 0.3850207, z: 0.47239506}
-  m_Center: {x: -0.00647144, y: 0.19251035, z: 0.020732433}
+  m_Size: {x: 0.48420325, y: 0.43188527, z: 0.52098715}
+  m_Center: {x: -0.00647144, y: 0.21594264, z: -0.003563583}
 --- !u!54 &8728671698802750050
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1137,7 +1137,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1148,21 +1148,21 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
+          value: 1
           inSlope: 0
-          outSlope: 1
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
-          inSlope: 1
-          outSlope: 0
+          time: 0.9937134
+          value: 0
+          inSlope: -0.17539671
+          outSlope: -0.17539671
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
+          inWeight: 0.15506566
           outWeight: 0.33333334
         m_PreInfinity: 2
         m_PostInfinity: 2

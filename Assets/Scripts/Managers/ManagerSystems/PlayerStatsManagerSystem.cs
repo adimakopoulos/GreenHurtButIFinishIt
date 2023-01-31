@@ -6,12 +6,17 @@ using UnityEngine;
 public class PlayerStatsManagerSystem: MonoBehaviour
 {
     public static event System.Action OnVariablesChanged;
-    private static int wood,stone,food;
+    private static int wood = 100,stone = 100, food = 100;
+    private static int balistaArrows = 100;
     public static int PAttack = 50;
+    private static float ammountOfTime = 5f;
 
     public static int Food { get => food; set  { food = value; OnVariablesChanged?.Invoke(); }  }
     public static int Stone { get => stone; set  { stone = value; OnVariablesChanged?.Invoke(); }  }
     public static int Wood { get => wood; set  { wood = value; OnVariablesChanged?.Invoke(); }  }
+    public static int BalistaArrows { get => balistaArrows; set { balistaArrows = value; OnVariablesChanged?.Invoke(); } }
+
+    public static float AmmountOfTime { get => ammountOfTime; set => ammountOfTime = value; }
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +39,5 @@ public class PlayerStatsManagerSystem: MonoBehaviour
     public static void increaseFood(int amount)
     {
         Food += amount;
-    }
-    public static string toString() {
-        return "wood: " + wood + " stone: " + stone;
     }
 }
