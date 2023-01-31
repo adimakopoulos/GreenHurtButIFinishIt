@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5049544351595717554}
   - component: {fileID: 1712428232748054647}
+  - component: {fileID: 2598415702620208196}
   m_Layer: 0
   m_Name: TileGo
   m_TagString: Untagged
@@ -50,7 +51,23 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d07197b8f8e03674193ba3169011a106, type: 2}
   - {fileID: 2100000, guid: 9f2c8cca2b1cc5348be09b4910ebef30, type: 2}
   - {fileID: 2100000, guid: 2ac67063db0f05c4f8f64e552285c959, type: 2}
+  tileTypeEnum: 0
+  navTypeEnum: 2
   MeshRender: {fileID: 5049544351849905406}
+  animator: {fileID: 8858862128925472405}
+--- !u!65 &2598415702620208196
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5049544351595717555}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9, y: 0.84, z: 0.9}
+  m_Center: {x: 0.5, y: -0.29, z: 0.5}
 --- !u!1 &5049544351849905404
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +79,7 @@ GameObject:
   - component: {fileID: 5049544351849905407}
   - component: {fileID: 5049544351849905401}
   - component: {fileID: 5049544351849905406}
+  - component: {fileID: 8858862128925472405}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -77,8 +95,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5049544351849905404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 5}
-  m_LocalScale: {x: 10, y: 0.2, z: 10}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5049544352254167040}
@@ -134,6 +152,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &8858862128925472405
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5049544351849905404}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7fa6c1e6fc62034bbabc2bf34e50545, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5049544352254167041
 GameObject:
   m_ObjectHideFlags: 0

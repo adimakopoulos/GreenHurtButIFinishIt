@@ -7,10 +7,11 @@ public class PlayerStatsManagerSystem: MonoBehaviour
 {
     public static event System.Action OnVariablesChanged;
     private static int wood,stone,food;
+    public static int PAttack = 50;
 
-    public static int Food { get => food; set  { food = value; OnVariablesChanged.Invoke(); }  }
-    public static int Stone { get => stone; set  { stone = value; OnVariablesChanged.Invoke(); }  }
-    public static int Wood { get => wood; set  { wood = value; OnVariablesChanged.Invoke(); }  }
+    public static int Food { get => food; set  { food = value; OnVariablesChanged?.Invoke(); }  }
+    public static int Stone { get => stone; set  { stone = value; OnVariablesChanged?.Invoke(); }  }
+    public static int Wood { get => wood; set  { wood = value; OnVariablesChanged?.Invoke(); }  }
 
     // Start is called before the first frame update
     void Start()

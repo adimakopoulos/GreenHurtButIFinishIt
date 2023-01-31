@@ -2,12 +2,27 @@
     <Style src="project://database/Assets/Resources/UI_Hud/USS/ButtonBuild.uss?fileID=7433441132597879392&amp;guid=9742bb7def6534a4c8b922b91fe9f455&amp;type=3#ButtonBuild" />
     <ui:VisualElement name="BackRound" style="height: 80px; flex-direction: column-reverse; flex-grow: 1;">
         <ui:VisualElement name="BottomContainer" style="align-items: center; flex-basis: 20%; flex-direction: row; justify-content: space-around; background-color: rgba(0, 0, 0, 0.49); margin-left: 15%; margin-right: 15%; flex-wrap: nowrap; width: auto; bottom: auto; margin-bottom: 1%;">
-            <ui:Button text="Quarry" display-tooltip-when-elided="true" name="BttnQuary" class="button" style="width: 100px; height: 50px;" />
-            <ui:Button text="Forester" display-tooltip-when-elided="true" name="BttnForester" class="button" style="width: 100px; height: 50px;" />
-            <ui:Button text="Farm" display-tooltip-when-elided="true" name="BttnFarm" class="button" style="width: 100px; height: 50px;" />
+            <ui:VisualElement name="BuildingContainer">
+                <ui:VisualElement name="BttnContainer">
+                    <ui:Label display-tooltip-when-elided="true" name="TxtFarm" style="-unity-text-align: upper-left; color: rgb(255, 255, 255); white-space: normal; flex-wrap: wrap-reverse; flex-direction: column;" />
+                    <ui:Button text="Farm" display-tooltip-when-elided="true" name="BttnFarm" class="button" style="width: 100px; height: 50px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="BuildingContainer">
+                <ui:VisualElement name="BttnContainer">
+                    <ui:Label display-tooltip-when-elided="true" name="TxtForester" style="-unity-text-align: upper-left; color: rgb(255, 255, 255);" />
+                    <ui:Button text="Forester" display-tooltip-when-elided="true" name="BttnForester" class="button" style="width: 100px; height: 50px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="BuildingContainer">
+                <ui:VisualElement name="BttnContainer">
+                    <ui:Label display-tooltip-when-elided="true" name="TxtQuary" style="-unity-text-align: upper-left; color: rgb(255, 255, 255);" />
+                    <ui:Button text="Quary" display-tooltip-when-elided="true" name="BttnQuary" class="button" style="width: 100px; height: 50px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement style="margin-left: 15%; margin-right: 15%; -unity-font-style: bold; font-size: 14px; color: rgb(255, 255, 255); background-color: rgba(0, 0, 0, 0.2);">
-            <ui:Label text="-" display-tooltip-when-elided="true" name="TxtStats" style="width: auto;" />
+        <ui:VisualElement name="VisualElement" class="button" style="width: auto; height: 30px; align-items: center; flex-direction: row; justify-content: space-between; margin-left: 15%; margin-right: 15%; background-color: rgba(0, 0, 0, 0.56);">
+            <ui:Label text="Thisis sable text" display-tooltip-when-elided="true" name="TxtStats" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

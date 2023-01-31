@@ -7,7 +7,10 @@ public class GridManagerSystem : MonoBehaviour
     public GameObject TilePreFab;
     public static Dictionary<Vector2, TileManager> map = new Dictionary<Vector2, TileManager>();
     public static int x, y;
-
+    private void Awake()
+    {
+        TilePreFab = Resources.Load("Prefabs/TileGo") as GameObject;
+    }
     public static bool validateCanBuildOnTile(List<Vector2> positions)
     {
         bool isPossibleToBuild = true;

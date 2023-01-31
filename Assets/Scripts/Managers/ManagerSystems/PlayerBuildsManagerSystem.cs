@@ -67,34 +67,17 @@ public class PlayerBuildsManagerSystem : MonoBehaviour
         }
     }
 
-    private static bool hasFertileLandBelow(int x, int y) {
-        
-        return false;
-    }
-
-
     static bool canBuild = false;
     private static bool validatePosition(int x, int y)
     {
-
         if (playerBuildTypeEnum == PlayerBuildTypeEnum.FARM)
         {
-            if (GridManagerSystem.validateCanBuildOnTile(collisionForFarm(x, y)) && GridManagerSystem.validateIsOnFeritleOrGrassTile(collisionForFarm(x, y)))
-            {
-                return true;
-            }
-            else {
-                return false;
-            }
-
-                 
-
+            return (GridManagerSystem.validateCanBuildOnTile(collisionForFarm(x, y)) &&
+               GridManagerSystem.validateIsOnFeritleOrGrassTile(collisionForFarm(x, y))) ? true : false;
         }
         else if (playerBuildTypeEnum == PlayerBuildTypeEnum.QUARRY)
         {
-
             return GridManagerSystem.validateCanBuildOnTile(collisionForQuarry(x, y));
-
         }
         else if (playerBuildTypeEnum == PlayerBuildTypeEnum.FORESTER)
         {
@@ -181,17 +164,29 @@ public class PlayerBuildsManagerSystem : MonoBehaviour
         {
             if (playerBuildTypeEnum == PlayerBuildTypeEnum.FARM)
             {
-                GridManagerSystem.setTilesType(collisionForFarm(posX, posY), NavTypesEnum.WALKABLE);
+
+                if (BuildingStore.buyFarm())
+                {
+                    GridManagerSystem.setTilesType(collisionForFarm(posX, posY), NavTypesEnum.WALKABLE);
+                }
+                else { return; }
+
             }
             else if (playerBuildTypeEnum == PlayerBuildTypeEnum.FORESTER)
             {
-                GridManagerSystem.setTilesType(collisionForForester(posX, posY), NavTypesEnum.OCCUPIED);
-
+                if (BuildingStore.buyForester())
+                {
+                    GridManagerSystem.setTilesType(collisionForForester(posX, posY), NavTypesEnum.OCCUPIED);
+                }
+                else { return; }
             }
             else if (playerBuildTypeEnum == PlayerBuildTypeEnum.QUARRY)
             {
-                GridManagerSystem.setTilesType(collisionForQuarry(posX, posY), NavTypesEnum.OCCUPIED);
-
+                if (BuildingStore.buyQuary())
+                {
+                    GridManagerSystem.setTilesType(collisionForQuarry(posX, posY), NavTypesEnum.OCCUPIED);
+                }
+                else { return; }
             }
 
             playerBuildTypeEnum = PlayerBuildTypeEnum.NONE;

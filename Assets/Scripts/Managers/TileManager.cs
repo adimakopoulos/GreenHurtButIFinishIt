@@ -9,6 +9,7 @@ public class TileManager : MonoBehaviour
     public  TileTypesEnum tileTypeEnum;
     public NavTypesEnum navTypeEnum = NavTypesEnum.EMPTY;
     public MeshRenderer MeshRender;
+    public Animator animator;
 
     public void setNavTypeEnum(NavTypesEnum navTypesEnum) { 
         this.navTypeEnum = navTypesEnum;
@@ -20,16 +21,10 @@ public class TileManager : MonoBehaviour
 
 
     }
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnMouseDown()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        //animator.Play("TileSelection");
     }
 
     public void setLocation(Vector2 location)
