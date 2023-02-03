@@ -55,6 +55,12 @@ public class TileManager : MonoBehaviour
             MeshRender.material = materials[2];
 
         }
+        if(gameObject.transform.position.y<-0.11)
+        {
+            tileTypeEnum = TileTypesEnum.ROAD;
+            MeshRender.material = materials[3];
+
+        }
 
     }
 
@@ -63,7 +69,8 @@ public enum TileTypesEnum
 {
     GRASS,
     FERTILE,
-    DIRT
+    DIRT,
+    ROAD
 }
 
 public enum NavTypesEnum

@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d07197b8f8e03674193ba3169011a106, type: 2}
   - {fileID: 2100000, guid: 9f2c8cca2b1cc5348be09b4910ebef30, type: 2}
   - {fileID: 2100000, guid: 2ac67063db0f05c4f8f64e552285c959, type: 2}
+  - {fileID: 2100000, guid: c4ed381ca158a1e40b1a92c9cc3d31f4, type: 2}
   tileTypeEnum: 0
   navTypeEnum: 2
   MeshRender: {fileID: 5049544351849905406}

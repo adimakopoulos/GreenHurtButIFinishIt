@@ -10,13 +10,13 @@ public class GuardTowerManager : MonoBehaviour
 
     private void OnEnable()
     {
-        FastbalistaArrow.OnFastArrowStart += setNewCoolDown;
+        FastbalistaArrow.OnFastArrowStart += setNewFiringCoolDown;
         FastbalistaArrow.OnFastArrowFinish += setOriginalCoolDown;
     }
 
     private void OnDisable()
     {
-        FastbalistaArrow.OnFastArrowStart -= setNewCoolDown;
+        FastbalistaArrow.OnFastArrowStart -= setNewFiringCoolDown;
         FastbalistaArrow.OnFastArrowFinish -= setOriginalCoolDown;
     }
     // Start is called before the first frame update
@@ -28,7 +28,7 @@ public class GuardTowerManager : MonoBehaviour
 
     float currentCoolDown = 1.7f;
     float originalValueCoolDown = 1.7f;
-    float timeElasped = 0f;
+    float timeElasped = 99f;
     void Update()
     {
         if (validateFireLocation())
@@ -42,9 +42,9 @@ public class GuardTowerManager : MonoBehaviour
     {
         currentCoolDown = originalValueCoolDown;
     }
-    private void setNewCoolDown(float a) {
-        currentCoolDown = a * 0.1f;
-        timeElasped = 66f;
+    private void setNewFiringCoolDown() {
+        currentCoolDown *= 0.3f;
+        timeElasped = 66f;//force reset  
     }
     private void fireArrow()
     {

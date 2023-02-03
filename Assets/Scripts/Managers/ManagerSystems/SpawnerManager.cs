@@ -10,7 +10,7 @@ public class SpawnerManager : MonoBehaviour
 
     void Start()
     {
-        EnemyGO = Resources.Load("Prefabs/ZombieGO") as GameObject;
+        EnemyGO = Resources.Load("Prefabs/Enemies/Zombie/ZombieGO") as GameObject;
         InvokeRepeating("SpawnPeriodicly", 10f, 3f);
     }
 

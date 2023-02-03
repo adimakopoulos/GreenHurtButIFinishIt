@@ -5,27 +5,29 @@ using UnityEngine;
 public class FastbalistaArrow : MonoBehaviour
 {
 
-    public static event System.Action<float> OnFastArrowStart;
+    public static event System.Action OnFastArrowStart;
     public static event System.Action OnFastArrowFinish;
 
-    private void OnEnable()
-    {
-        OnFastArrowStart += stopAfterTime;
+    static bool isActive = false;
+    public static void StartAbility() {
+        OnFastArrowStart?.Invoke();
+        isActive = true;
+
     }
-    private void OnDisable()
+
+    private float timeElasped=0f;
+    private void Update()
     {
-        OnFastArrowStart -= stopAfterTime;
-    }
-    private void stopAfterTime(float cooldownOfPlayer) {
-        Invoke("stopNow", cooldownOfPlayer);
+        if (isActive) {
+            timeElasped+= Time.deltaTime;
+        }
+        if (timeElasped > PlayerStatsManagerSystem.AmmountOfTime) {
+            timeElasped = 0f;
+            stopNow();
+        }
     }
     private void stopNow() {
         OnFastArrowFinish?.Invoke();
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            OnFastArrowStart?.Invoke(PlayerStatsManagerSystem.AmmountOfTime);
-        }
-    }
+
 }

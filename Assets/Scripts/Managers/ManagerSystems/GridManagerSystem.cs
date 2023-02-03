@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridManagerSystem : MonoBehaviour
 {
-    public GameObject TilePreFab;
+    private GameObject TilePreFab;
     public static Dictionary<Vector2, TileManager> map = new Dictionary<Vector2, TileManager>();
     public static int x, y;
     private void Awake()
@@ -67,7 +67,7 @@ public class GridManagerSystem : MonoBehaviour
 
     private void populateMapWithTiles()
     {
-        x = 10;
+        x = 40;
         y = 20;
         for (int i = 0; i < y; i++)
         {
@@ -81,7 +81,7 @@ public class GridManagerSystem : MonoBehaviour
     private void createAndPlaceTile(int i, int j)
     {
         var tileGO = Instantiate(TilePreFab);
-        tileGO.transform.position = new Vector3(j * 1, 0, i * 1);
+        tileGO.transform.position = new Vector3(j * 1, -0.1f, i * 1);
         tileGO.name = "Tile: " + j + " " + i;
         tileGO.GetComponent<TileManager>().location = new Vector2(j, i);
         map.Add(new Vector2(j, i), tileGO.GetComponent<TileManager>());
