@@ -4,21 +4,31 @@ using UnityEngine;
 using UnityEngine.UIElements;
 public class UI : MonoBehaviour
 {
+    Button bQuary;
+    Button bForester;
+    Button bFarm;
+    private void Awake()
+    {
+        VisualElement visualElement = GetComponent<UIDocument>().rootVisualElement;
 
+        bQuary = visualElement.Q<Button>("BttnQuary");
+        bForester = visualElement.Q<Button>("BttnForester");
+        bFarm = visualElement.Q<Button>("BttnFarm");
+    }
     private void OnEnable()
     {
         VisualElement visualElement = GetComponent<UIDocument>().rootVisualElement;
 
-        Button bQuary = visualElement.Q<Button>("BttnQuary");
-        Button bForester = visualElement.Q<Button>("BttnForester");
-        Button bFarm = visualElement.Q<Button>("BttnFarm");
+        bQuary = visualElement.Q<Button>("BttnQuary");
+        bForester = visualElement.Q<Button>("BttnForester");
+        bFarm = visualElement.Q<Button>("BttnFarm");
 
         Label txtStats = visualElement.Q<Label>("TxtStats");
         Label tQuary = visualElement.Q<Label>("TxtQuary");
         Label tForester = visualElement.Q<Label>("TxtForester");
         Label tFarm = visualElement.Q<Label>("TxtFarm");
 
-        bQuary.clicked +=  PlayerBuildsManagerSystem.setWantedBuildingQuarry;
+        bQuary.clicked += PlayerBuildsManagerSystem.setWantedBuildingQuarry;
         bForester.clicked += PlayerBuildsManagerSystem.setWantedBuildingForester;
         bFarm.clicked += PlayerBuildsManagerSystem.setWantedBuildingFarm;
 
@@ -27,7 +37,15 @@ public class UI : MonoBehaviour
         tQuary.text = "Cost wood:" + BuildingStore.QuaryWoodCost + ", stone: " + BuildingStore.QuaryStoneCost;
         tForester.text = "Cost wood:" + BuildingStore.ForesterWoodCost;
     }
-    void updateValues() {
+    private void OnDisable()
+    {
+        bQuary.clicked -= PlayerBuildsManagerSystem.setWantedBuildingQuarry;
+        bForester.clicked -= PlayerBuildsManagerSystem.setWantedBuildingForester;
+        bFarm.clicked -= PlayerBuildsManagerSystem.setWantedBuildingFarm;
+        PlayerStatsManagerSystem.OnVariablesChanged -= updateValues;
+    }
+    void updateValues()
+    {
         VisualElement visualElement = GetComponent<UIDocument>().rootVisualElement;
 
         Label txtStats = visualElement.Q<Label>("TxtStats");

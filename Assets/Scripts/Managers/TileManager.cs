@@ -17,9 +17,6 @@ public class TileManager : MonoBehaviour
     private void Awake()
     {
         Invoke("setRandomTileTypeEnum", 0.5f);
-
-
-
     }
 
     private void OnMouseDown()

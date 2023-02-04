@@ -12,6 +12,7 @@ public class FastbalistaArrow : MonoBehaviour
     public static void StartAbility() {
         OnFastArrowStart?.Invoke();
         isActive = true;
+        Debug.Log("StartAbility");
 
     }
 
@@ -27,6 +28,8 @@ public class FastbalistaArrow : MonoBehaviour
         }
     }
     private void stopNow() {
+        Debug.Log("stopNow");
+        isActive = false;
         OnFastArrowFinish?.Invoke();
     }
 

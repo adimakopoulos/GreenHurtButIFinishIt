@@ -47,10 +47,10 @@ public class BallistaArrowManager : MonoBehaviour
     {
         if (other != null)
         {
-            var zombieManager = other.gameObject.GetComponent<ZombieManager>();
-            if (zombieManager != null)
+            var enemy = other.gameObject.GetComponent<IEnemy>();
+            if (enemy != null)
             {
-                zombieManager.takeDamage();
+                enemy.takeDamage(PlayerStatsManagerSystem.PAttack);
             }
         }
     }

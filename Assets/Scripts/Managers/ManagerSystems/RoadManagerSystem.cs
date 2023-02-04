@@ -28,7 +28,7 @@ public class RoadManagerSystem : MonoBehaviour
             {
                 continue;
             }
-            Debug.Log(randDecision);
+            //Debug.Log(randDecision);
             if (randDecision == 0)
             {
                 i--;
@@ -37,18 +37,18 @@ public class RoadManagerSystem : MonoBehaviour
 
                 continue;
             }
-            if (randDecision == 1 && j<20 && j>1)
+            if (randDecision == 1 && j<19 && j>1)
             {
-                Debug.Log("right");
+                //Debug.Log("right");
                 ++j;
                 road.Add(new Vector2(i, j));
                 lastDirection = 1;
 
                 continue;
             }
-            if (randDecision == 2 && j < 20 && j > 1)
+            if (randDecision == 2 && j < 19 && j > 1)
             {
-                Debug.Log("left");
+                //Debug.Log("left");
                 --j;
                 road.Add(new Vector2(i,j));
                 lastDirection = 2;
@@ -67,13 +67,6 @@ public class RoadManagerSystem : MonoBehaviour
 
     private void offsetRoadTiles()
     {
-        //for (int i = 39; i > 20; i--)
-        //{
-
-        //    var pos = GridManagerSystem.map[new Vector2(i, Random.Range(0, 19))].gameObject.transform.localPosition;
-        //    pos.y = -0.2f;
-        //    GridManagerSystem.map[new Vector2(i, pos.z)].gameObject.transform.localPosition = pos;
-        //}
         foreach (var vector2 in road)
         {
             var pos = GridManagerSystem.map[vector2].gameObject.transform.localPosition;
